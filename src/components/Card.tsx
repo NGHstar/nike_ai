@@ -1,24 +1,21 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
 interface CardProps {
-  title: string;
-  category: string;
-  price: string;
-  image: string;
-  colors?: number;
-  badge?: string;
+  title: string
+  subtitle: string
+  price: number
+  meta: string
+  image: string
+  colors?: number
+  badge?:
+    | { label: string; tone: 'orange' }
+    | { label: string; tone: 'red' }
+    | { label: string; tone: 'green' }
 }
 
-export function Card({
-  title,
-  category,
-  price,
-  image,
-  colors,
-  badge,
-}: CardProps) {
+export function Card({ title, price, image, colors, badge }: CardProps) {
   return (
     <div className="group w-full overflow-hidden">
       <div className="relative aspect-square overflow-hidden bg-light-200">
@@ -31,7 +28,7 @@ export function Card({
         />
         {badge && (
           <span className="absolute left-3 top-3 rounded-full bg-light-100 px-3 py-1 text-caption font-semibold text-red">
-            {badge}
+            {badge.label}
           </span>
         )}
       </div>
@@ -39,17 +36,11 @@ export function Card({
       <div className="bg-dark-900 px-4 py-3">
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-body-medium text-light-100">{title}</h3>
-          <span className="shrink-0 text-body-medium text-light-100">
-            {price}
-          </span>
+          <span className="shrink-0 text-body-medium text-light-100">{price}</span>
         </div>
-        <p className="mt-0.5 text-caption text-dark-500">{category}</p>
-        {colors !== undefined && (
-          <p className="mt-0.5 text-caption text-dark-500">
-            {colors} Colour
-          </p>
-        )}
+
+        {colors !== undefined && <p className="mt-0.5 text-caption text-dark-500">{colors} Colour</p>}
       </div>
     </div>
-  );
+  )
 }
