@@ -41,7 +41,7 @@ const products = [
 
 const Home = () => {
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <main className="mx-auto max-w-[1440px] px-6 py-8 lg:px-12">
       <section aria-labelledby="latest" className="pb-12">
         <h2 id="latest" className="mb-6 text-h3 text-dark-900">
           Latest shoes
