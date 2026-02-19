@@ -17,7 +17,7 @@ const badgeColorMap = {
   green: 'text-green',
 } as const
 
-export function Card({ title, subtitle, meta, price, image, badge }: CardProps) {
+export default function Card({ title, subtitle, meta, price, image, badge }: CardProps) {
   return (
     <div className="group w-full rounded-xl ring-light-300 ring hover:ring-light-400">
       <div className="relative aspect-square overflow-hidden bg-light-200 rounded-t-xl">
