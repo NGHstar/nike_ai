@@ -19,8 +19,8 @@ const badgeColorMap = {
 
 export function Card({ title, subtitle, meta, price, image, badge }: CardProps) {
   return (
-    <div className="group w-full">
-      <div className="relative aspect-square overflow-hidden bg-light-200">
+    <div className="group w-full rounded-xl ring-light-300 ring hover:ring-light-400">
+      <div className="relative aspect-square overflow-hidden bg-light-200 rounded-t-xl">
         <Image
           src={image}
           alt={title}
@@ -37,12 +37,10 @@ export function Card({ title, subtitle, meta, price, image, badge }: CardProps) 
         )}
       </div>
 
-      <div className="pt-3">
+      <div className="p-3">
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-body-medium text-dark-900">{title}</h3>
-          <span className="shrink-0 text-body-medium text-dark-900">
-            ${price.toFixed(2)}
-          </span>
+          <span className="shrink-0 text-body-medium text-dark-900">${price.toFixed(2)}</span>
         </div>
         <p className="mt-0.5 text-body text-dark-700">{subtitle}</p>
         <p className="mt-0.5 text-body text-dark-700">{meta}</p>
