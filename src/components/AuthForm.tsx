@@ -13,27 +13,27 @@ export function AuthForm({ mode }: AuthFormProps) {
   const isSignIn = mode === "sign-in"
 
   return (
-    <div className="w-full max-w-md">
-      <div className="mb-2 text-right">
-        <span className="text-caption text-dark-700">
+    <div className="w-full max-w-lg">
+      <div className="mb-6 text-center">
+        <p className="text-caption text-dark-700">
           {isSignIn ? "Don't have an account? " : "Already have an account? "}
-        </span>
-        <Link
-          href={isSignIn ? "/sign-up" : "/sign-in"}
-          className="text-caption font-semibold text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
-        >
-          {isSignIn ? "Sign Up" : "Sign In"}
-        </Link>
+          <Link
+            href={isSignIn ? "/sign-up" : "/sign-in"}
+            className="font-semibold text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
+          >
+            {isSignIn ? "Sign Up" : "Sign In"}
+          </Link>
+        </p>
       </div>
 
-      <div className="mt-8 text-center sm:mt-12">
-        <h1 className="text-h3 text-dark-900">
-          {isSignIn ? "Welcome back!" : "Create your account"}
+      <div className="mt-6 text-center">
+        <h1 className="text-h2 text-dark-900">
+          {isSignIn ? "Welcome Back!" : "Join Nike Today!"}
         </h1>
         <p className="mt-2 text-body text-dark-700">
           {isSignIn
-            ? "Please enter your details to sign in"
-            : "Please fill in your details to get started"}
+            ? "Enter your details to access your account"
+            : "Create your account to start your fitness journey"}
         </p>
       </div>
 
@@ -56,7 +56,7 @@ export function AuthForm({ mode }: AuthFormProps) {
             <div>
               <label
                 htmlFor="name"
-                className="mb-1.5 block text-caption text-dark-900"
+                className="mb-1.5 block text-body-medium text-dark-900"
               >
                 Full Name
               </label>
@@ -65,8 +65,8 @@ export function AuthForm({ mode }: AuthFormProps) {
                 name="name"
                 type="text"
                 autoComplete="name"
-                placeholder="John Doe"
-                className="w-full rounded-lg border border-light-300 bg-light-100 px-4 py-3 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
+                placeholder="Enter your full name"
+                className="w-full rounded-xl border border-light-300 bg-light-200 px-4 py-3.5 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
               />
             </div>
           )}
@@ -74,7 +74,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           <div>
             <label
               htmlFor="email"
-              className="mb-1.5 block text-caption text-dark-900"
+              className="mb-1.5 block text-body-medium text-dark-900"
             >
               Email
             </label>
@@ -83,15 +83,15 @@ export function AuthForm({ mode }: AuthFormProps) {
               name="email"
               type="email"
               autoComplete="email"
-              placeholder="johndoe@mail.com"
-              className="w-full rounded-lg border border-light-300 bg-light-100 px-4 py-3 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
+              placeholder="johndoe@gmail.com"
+              className="w-full rounded-xl border border-light-300 bg-light-200 px-4 py-3.5 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
             />
           </div>
 
           <div>
             <label
               htmlFor="password"
-              className="mb-1.5 block text-caption text-dark-900"
+              className="mb-1.5 block text-body-medium text-dark-900"
             >
               Password
             </label>
@@ -101,8 +101,8 @@ export function AuthForm({ mode }: AuthFormProps) {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 autoComplete={isSignIn ? "current-password" : "new-password"}
-                placeholder="minimum 8 character"
-                className="w-full rounded-lg border border-light-300 bg-light-100 px-4 py-3 pr-12 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
+                placeholder="minimum 8 characters"
+                className="w-full rounded-xl border border-light-300 bg-light-200 px-4 py-3.5 pr-12 text-body text-dark-900 placeholder:text-dark-500 transition-colors focus:border-dark-900 focus:outline-none"
               />
               <button
                 type="button"
@@ -170,22 +170,39 @@ export function AuthForm({ mode }: AuthFormProps) {
 
           <button
             type="submit"
-            className="mt-1 w-full rounded-full bg-orange px-6 py-3.5 text-body-medium text-light-100 transition-opacity hover:opacity-90"
+            className="mt-2 w-full rounded-full bg-dark-900 px-6 py-4 text-body-medium text-light-100 transition-opacity hover:opacity-90"
           >
-            {isSignIn ? "Sign In" : "Sign Up"} &rarr;
+            {isSignIn ? "Sign In" : "Sign Up"}
           </button>
         </form>
 
-        {isSignIn && (
-          <div className="mt-4 text-center">
+        <p className="mt-5 text-center text-footnote text-dark-700">
+          {isSignIn ? (
             <Link
               href="#"
-              className="text-caption font-semibold text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
+              className="font-semibold text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
             >
               Forgot password?
             </Link>
-          </div>
-        )}
+          ) : (
+            <>
+              By signing up, you agree to our{" "}
+              <Link
+                href="#"
+                className="text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
+              >
+                Terms of Service
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="#"
+                className="text-dark-900 underline underline-offset-2 transition-colors hover:text-dark-700"
+              >
+                Privacy Policy
+              </Link>
+            </>
+          )}
+        </p>
       </div>
     </div>
   )
